@@ -1,0 +1,75 @@
+<!-- Button trigger modal 
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+    Show Vehicle types
+  </button> -->
+  <p>Ukupni prihod: {{ income.income }} kn </p>
+  <div class="table table-striped">
+  <table>
+  <thead>
+    <th scope="col">Id</th>
+    <th scope="col">TipAuta</th>
+    <th scope="col">Marka</th>
+    <th scope="col">Reg.Tablica</th>
+    <th scope="col">Gorivo</th>
+    <th scope="col">Baterija</th>
+    <th scope="col">Pregledano</th>
+    <th scope="col">Benzinska</th>
+    <th scope="col">Punionica</th>
+    <th scope="col">Carina</th>
+    <th scope="col">Trajekt</th>
+</thead>
+<tbody>
+    <tr *ngFor="let item of vehicleList$|async">
+        <td>{{item.id}}</td>
+        <td>{{vehicletypesMap.get(item.vehicletypeId)}}</td>
+        <td>{{item.vehiclemake}}</td>
+        <td>{{item.registrationnumber}}</td>
+        <td>{{item.fuel}}%</td>
+        <td>{{item.battery}}%</td>
+        <td>{{item.reviewed}}</td>
+        <td><button *ngIf="item.fuelx" (click)="refuel(item.id)" type="button" class="btn btn-light me-1">Natoci</button></td>
+        <td><button *ngIf="item.batteryx" (click)="recharge(item.id)" type="button" class="btn btn-light me-1">Napuni</button></td>
+        <td><button *ngIf="item.review" (click)="reviewx(item.id)" type="button" class="btn btn-light me-1">Pregledaj</button></td>
+        <td><button *ngIf="item.boarding" (click)="boardingx(item.id)" type="button" class="btn btn-primary me-1">Ukrcaj</button></td>
+    </tr>
+</tbody>
+</table>
+</div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Vehicle Types</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p *ngFor="let type of vehicletypesList$|async">{{type.id}} - {{type.name}}</p>
+        </div>
+        <div class="modal-footer">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Kontrola</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+
+            <p *ngIf="">viewCheck()</p>
+          </div>
+          <div class="modal-footer">
+  
+          </div>
+        </div>
+      </div>
+    </div>

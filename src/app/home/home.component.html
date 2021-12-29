@@ -1,0 +1,25 @@
+<div class="container">
+    <header class="jumbotron">
+      <div class="container">
+        <h1>Dobro došli na trajektni terminal</h1>
+      </div>
+    </header>
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th>Ime broda</th>
+          <th scope="col">Tip broda</th>
+          <th scope="col">Slobodna mjesta</th>
+          <th scope="col">Kapacitet</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of freeplacesList$|async">
+          <th>{{item.name}}</th>
+          <td>{{item.type}}</td>
+          <td>{{item.freeplaces}}</td>
+          <td>{{item.capacity}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

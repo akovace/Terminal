@@ -1,0 +1,48 @@
+<div class="container" *ngIf="currentUser; else loggedOut">
+    <header class="jumbotron">
+      <h3>
+        <strong>Profil</strong>
+      </h3>
+      
+    </header>
+    <div class="table table-striped">
+    <table>
+  <tbody>
+    <tr>
+      <td>ID</td>
+      <td>{{ currentUser.id }}</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>{{ currentUser.email }}</td>
+    </tr>
+    <tr>
+      <td>Ime</td>
+      <td>{{ currentUser.name }}</td>
+    </tr>
+    <tr>
+      <td>Prezime</td>
+      <td>{{ currentUser.surname }}</td>
+    </tr>
+    <tr>
+      <td>Oib</td>
+      <td>{{ currentUser.oib }}</td>
+    </tr>
+    <tr>
+      <td>Postotak od prodanee karte</td>
+      <td>{{ currentUser.fee }} %</td>
+    </tr>
+    <tr>
+      <td>Placa</td>
+      <td>{{ salary.salary }} kn</td>
+    </tr>
+  </tbody>
+  </table>
+  </div>
+
+  </div>
+  
+  
+  <ng-template #loggedOut>
+    Please login.
+  </ng-template>
